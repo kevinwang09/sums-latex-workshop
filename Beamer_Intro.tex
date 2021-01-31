@@ -1,0 +1,73 @@
+\documentclass[10pt,a4paper,serif]{beamer}
+
+%\usepackage{color}
+%\usepackage{listings}
+%\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+%\usepackage{graphicx}
+\usepackage{url}
+
+\usetheme{Montpellier}
+\usecolortheme{dolphin}
+\usefonttheme{professionalfonts}
+
+
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered] % Just something that is cool. 
+
+\title{An quick introduction to Beamer}
+\author{$\Sigma$UMS}
+
+\institute{Sydney Universtiy Mathematics Society}
+\date{Last Modified: \today}
+\begin{document}
+
+\begin{frame}
+\maketitle
+\end{frame}
+
+\begin{frame}{Outline}
+\tableofcontents
+\end{frame}
+
+
+\begin{frame}{Outline}
+\tableofcontents[currentsection]
+\end{frame}
+
+\section{First section}
+\begin{frame}
+\frametitle{Frames}
+Everything is like in \LaTeX\ but you must put your texts inside frames. 
+
+\begin{equation}
+\sum_{k=1}^{\infty} \frac{1}{k^2} = \frac{\pi^2}{6}.
+\end{equation}
+\end{frame}
+
+
+\section{Second section}
+\begin{frame}{Outline}
+  \tableofcontents[currentsection]
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Resources}
+\begin{itemize}
+\item We don't have enough time today, but here are some links that might help you to build your own Beamer slides. 
+\url{https://www.hartwork.org/beamer-theme-matrix}
+\url{http://web.mit.edu/rsi/www/pdfs/beamer-tutorial.pdf}
+
+\item A great website that stores your \LaTeX\ or Beamer slides. 
+\url{https://www.sharelatex.com/blog/2013/08/13/beamer-series-pt1.html}
+\end{itemize}
+\end{frame}
+
+
+
+
+\end{document}
+
+

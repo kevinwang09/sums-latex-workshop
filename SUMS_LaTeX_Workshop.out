@@ -1,0 +1,14 @@
+\BOOKMARK [0][-]{part.1}{I The basic stuff}{}% 1
+\BOOKMARK [1][-]{section.1}{Structure of a .tex document}{part.1}% 2
+\BOOKMARK [1][-]{section.2}{Environments}{part.1}% 3
+\BOOKMARK [1][-]{section.3}{A comment about the preamble}{part.1}% 4
+\BOOKMARK [0][-]{part.2}{II The pretty stuff}{}% 5
+\BOOKMARK [1][-]{section.4}{Maths mode}{part.2}% 6
+\BOOKMARK [2][-]{subsection.4.1}{Some tips}{section.4}% 7
+\BOOKMARK [1][-]{section.5}{Matrices, tables and images}{part.2}% 8
+\BOOKMARK [2][-]{subsection.5.1}{Matrices}{section.5}% 9
+\BOOKMARK [2][-]{subsection.5.2}{Tables}{section.5}% 10
+\BOOKMARK [2][-]{subsection.5.3}{Images}{section.5}% 11
+\BOOKMARK [1][-]{section.6}{Bibliography}{part.2}% 12
+\BOOKMARK [2][-]{subsection.6.1}{Manually typing the bibliography}{section.6}% 13
+\BOOKMARK [2][-]{subsection.6.2}{BibTeX}{section.6}% 14

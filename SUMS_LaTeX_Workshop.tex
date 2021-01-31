@@ -1,0 +1,418 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{fullpage}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage[colorlinks=true,linkcolor=black,citecolor=red]{hyperref} 
+\usepackage{graphicx}
+
+%\usepackage{enumerate}
+
+
+\newcommand{\RealNumbers}{$\mathbb{R}$}
+
+% Hey! This line didn't appear in the PDF... 
+% Anything written after a percentage sign is ignored by the LaTeX compiler. 
+% So we often use percentage signs to leave comments in the code. 
+
+\author{Sydney University Mathematics Society ($\Sigma$UMS)}
+\date{\today}
+\title{A \LaTeX\ Workshop}
+
+% Everything above this line forms the preamble. 
+\begin{document}
+
+\maketitle % Prints the title and author and date.
+\tableofcontents % The TOC.
+\clearpage % Clearing a page for aesthetics.
+
+
+\begin{abstract}
+This is the document's abstract. It's an environment that automatically prints smaller font with wider margins. \\
+% We just used two backslashes to start a new line. 
+In this document, we will explain some basic LaTeX syntaxes. If you follow along while reading the \verb|.tex| file, you'll be able to find even more hidden comments! 
+\end{abstract}
+% For every \begin{}, there must follow an \end{}. 
+% BTW, you might have noticed by now that LaTeX is case-sensitive! 
+
+
+\part{The basic stuff}
+
+\section{Structure of a .tex document}
+A \verb|.tex| document can have two components:
+% The verb and verbatim environments allow us, the creator of this document, to display LaTeX syntaxes without the compiler actually compiling these codes. We will have more to say about this later. 
+% For now, just note that \verb is unusual in that it can take arguments between ANY two special characters. We're using pipes |...| here instead of the expected braces {...} 
+
+\begin{enumerate} % Creating a numbered list.
+\item Preliminary definitions are found before the \verb|\begin{document}| command. This is often called the \textbf{preamble}. 
+% \textbf{stuff} makes stuff bold. \textit{} will give you italics. 
+
+\item The actual contents of the document is found between the lines: 
+	\begin{verbatim}
+		\begin{document}
+			...
+		\end{document}
+	\end{verbatim}
+\end{enumerate}
+
+% Any gap longer than one space is treated as a single space by LaTeX
+% This means multiple spaces and indents are of no relevance to the compiler. 
+% So if you want your document to look extra nice in its .tex form, you can use indentations to mark out important things like new or nested environments. 
+% Compare the indented verbatim environment above, against the lazier unindented verbatim environment below. 
+
+The simplest document you can produce is by typing:
+\begin{verbatim}
+\documentclass{article}
+\begin{document}
+Here is a line of text. 
+\end{document}
+\end{verbatim}
+
+We will only go through the document classes ``article'' and ``beamer'' in this workshop. 
+%Notice LaTeX must explicitly be told the difference between opening and closing quotation marks. This is so it never assumes some sort of formatting you didn't expect. Use the top-left key ` (usually the same key as tilde ~) for opening quotation marks, and the normal ' key for closing quotation marks (as well as apostrophes etc.). 
+For the purposes of undergraduate mathematics assignments, ``article'' is probably the simplest document class to use. That being said, you should keep in mind \LaTeX\ is flexible and has many more classes than just these two. You can even design your own classes! 
+
+
+\section{Environments}
+You can think of environments as special regions in your \verb|.tex| file that format your text differently. The abstract you saw in this document has a special styling because we used the \textbf{abstract} environment. Elsewhere we have inserted \LaTeX\ syntaxes into this document without messing up the commands because we used the \textbf{verbatim} environment. 
+
+Another example of an environment is the \textbf{enumerate} environment, which produces numbered lists. You can also use the \textbf{itemize} environment to produce bullet-point lists. 
+
+\begin{enumerate}
+
+% New entries in a list are preceded by \item. 
+
+	\item This is the first item of an enumerate environment.
+	
+	\item This is the second item of the same enumerate environment.
+
+	\begin{enumerate}
+
+		\item This is the first item of a new enumerate environment, which is nested inside the first enumerate environment.
+
+	\end{enumerate}
+	
+	\begin{itemize}
+
+		\item This is the first item of an itemize environment, which is nested inside the first enumerate environment.
+
+	\end{itemize}
+	
+\end{enumerate}
+
+
+There are many more environments worth checking out -- Google and the LaTeX wiki are your friends! 
+
+% (Notice that to get an en-dash, you have to write two minus signs in a row. Three minus signs will create an em-dash. In general, the more minus signs in a row, the longer LaTeX will make your dash.) 
+
+
+\section{A comment about the preamble}
+
+In general, the preamble is where we can put in extra settings, packages and commands to use in conjunction with \LaTeX. 
+
+A package is like an add-on to your \LaTeX\ document; it allows extra symbols, environments or styles. 
+
+For example, to use a different style of the \textbf{enumerate} environment, you can uncomment the line \verb|%\usepackage{enumerate}| by deleting the percentage sign in the preamble (or just type \verb|\usepackage{enumerate}| somewhere in your preamble). 
+
+Now copy and paste the following block into your \verb|.tex| file to see a different style of enumerate: 
+
+\begin{verbatim}
+\begin{enumerate}[a.]
+\item This is a different style of enumerate! 
+\item Instead of numbering, we are using letters!
+\item That's what the \verb|[a.]| bit is doing! 
+\end{enumerate}
+\end{verbatim}
+
+
+Or you can uncomment the line \verb| %\newcommand{\RealNumbers}{\mathbb{R}}| in the preamble and type  \verb|\RealNumbers| into your \verb|.tex| file to see a cool maths symbol! 
+
+This command is particularly useful if you have an expression that you want to use constantly in your documents but do not want to type out the full syntax every time. Here we are replacing the code snippet \verb|\mathbb{R}| with the short-cut phrase \verb|\RealNumbers|
+
+You might think typing \verb|\RealNumbers| isn't saving you much time in this case. Why not try changing it to \verb|\Reals| or even \verb|\R|? Just make sure you're not going to be using \verb|\R| to mean anything else in your document\dots
+
+% An ellipsis doesn't tend to look as nice when interpreted as three full-stops in a row. Instead of writing "...", you can write "\dots" to achieve nicer spacing. If you'd prefer centered dots in an equation, try "$\cdots$". 
+
+\newpage % Guess what this does! 
+
+\part{The pretty stuff}
+
+\section{Maths mode}
+
+Typing mathematical expressions in \LaTeX\ requires using maths mode.
+
+There are four basic maths modes to suit your typesetting needs. Most commonly, you will see mathematical symbols and short equations written between dollar signs: \verb|$ equation goes here $| . 
+
+Inside each of these maths modes, you can use a range of syntaxes to typeset a range of symbols. Keep in mind that these syntaxes are almost universal in the science community, making it incredibly easy to communicate ideas to your friends and colleagues. Examples of appropriate syntaxes are can found here: \url{https://wch.github.io/latexsheet/}. 
+
+\vspace{1cm}
+
+Most symbols have a very intuitive name for their syntax. For example, each letter of the Greek alphabet is written as a backslash followed by its conventional English spelling. Check out our favourite Greek letter: 
+
+\begin{itemize} 
+	\item Lower-case sigma $\sigma$ is just \verb|$\sigma$|. 
+	\item The variant terminating sigma $\varsigma$ is given by \verb|$\varsigma$|. 
+	\item And upper-case sigma $\Sigma$ is \verb|$\Sigma$|. 
+\end{itemize}
+
+\vspace{1cm}
+
+Let's look at an equation example. Typing: 
+\begin{verbatim}
+\begin{equation}
+\alpha \beta \gamma leq \frac{1}{abc} .
+\end{equation}
+\end{verbatim}
+
+will give you: 
+\begin{equation}
+\alpha \beta \gamma 
+\leq \frac{1}{abc} .
+\end{equation}
+% \leq is the syntax for Less or EQual to.
+% The fraction command \frac is followed by two expressions in {} brackets - the first is the numerator, and the second is the denominator. 
+
+Before we start to typeset more complex equations, let's back-track a bit. The four basic maths modes are:
+
+\begin{enumerate}
+	\item \verb|$...$| for inline symbols like: 
+	$ \sum_{k=1}^{\infty} \frac{1}{k^2} = \frac{\pi^2}{6} $.
+	% ^ is used for superscripts in general. 
+	% \sum_{from}^{to} gives the sigma notation. 
+	% \frac{numerator}{demoninator} gives you a fraction.
+
+	% In-line symbols can get pretty squished, as evidenced by the summation sigma and as can also often be seen in integrals. 
+	% (Try replacing \sum with \int above and below to see what we mean).
+
+	\item \verb|$$...$$| or \verb|\[...\]| for equations that are important:
+
+	$$ \sum_{k=1}^{\infty} \frac{1}{k^2} = \frac{\pi^2}{6}. $$
+
+	% Same effects as
+	%
+	%\begin{equation*}
+	%...
+	%\end{equation*}
+	%
+	% (the stars tell LaTeX not to number/label the equation)
+
+	\item If your equation is super important, you can number it by using the \textbf{equation} environment:
+
+	\begin{verbatim}
+	\begin{equation}
+	...
+	\end{equation}
+	\end{verbatim} 
+
+	\begin{equation} \label{zeta2}
+	\sum_{k=1}^{\infty} \frac{1}{k^2} = \frac{\pi^2}{6}.
+	\end{equation}
+	
+	% We'll explain that \label bit later... 
+	
+	\item The \textbf{align} environment is used for multi-line \textbf{equation}s. If you include an asterisk, using the \textbf{align*} environment, none of the lines will be numbered. 
+
+	\begin{verbatim}
+	\begin{align}
+	...
+	\end{align}
+	\end{verbatim}
+
+	% The un-numbered version looks like:
+	%\begin{align*}
+	%...
+	%\end{align*}
+	
+	\begin{align}
+	\zeta(2) 	&= \sum_{k=1}^{\infty} \frac{1}{k^2} \nonumber \\ 
+				&= \frac{\pi^2}{6}. 
+	\end{align}
+	% The end of a line is marked with two backslashes: \\
+	% The ampersand (&) marks the spot that should vertically align with every other line's ampersand. 
+	% You can include more than one ampersand per line, in which case each line's nth ampersand will align with every other line's nth ampersand. 
+	% The \nonumber command suppresses numbering on that particular line in the align environment.
+	
+\end{enumerate}
+
+
+If you want to dynamically refer to an equation by its equation number, you can assign a name to the equation itself using \verb|\label{name}|, and later reference it by inserting \verb|\eqref{name}|. This is safer than statically referencing equations (by just typing ``(2)'', say), since you might change the order of equations in your document later. 
+
+For example: The Riemann-Zeta function evaluated at $s=2$ is seen in Equation \eqref{zeta2}.
+
+
+
+There are \textit{many} mathematical symbols you can generate in \LaTeX . All you need to do is get used to them! Don't forget that you can always redefine short-cuts for symbols or even strings of symbols in your preamble. 
+
+\begin{align}
+\oint \vec{E} \cdot d\vec{A} &= \frac{q}{\epsilon_0} \\
+\oint \vec{B} \cdot d\vec{s} &= \mu_0 i + \frac{1}{c^2} \frac{\partial}{\partial t} \int \vec{E} \cdot d\vec{A} \\
+\liminf_{n \rightarrow \infty} \underbrace{\frac{1}{n}}_{\in \mathbb{Q}} &= 0 
+\end{align}
+
+
+
+\subsection{Some tips}
+
+\begin{itemize}
+\item Braces \verb|{...}| are very important in maths mode. Whenever in doubt, stick a pair of braces around a connected part of an equation. 
+
+Note for example that braces are required for exponentials and subscripts that are more than one character long. Notice that \verb|$2^10$| yields $2^10$, while we probably wanted \verb|$2^{10}$| (which gives $2^{10}$). 
+
+
+\item Having \verb|\usepackage{amssymb}| in the preamble is usually a good idea. Many symbols we use in mathematics are contained in this standard package. For example:
+% ams is the American Mathematics Society. This package is probably loaded whenever a mathematician uses LaTeX. 
+
+\begin{align}
+& \mathbb{R} \\
+& \mathcal{N}( \mu, \sigma^2 ) \\
+& \mathfrak{A}
+\end{align}
+
+\end{itemize}
+
+
+
+\section{Matrices, tables and images}
+
+\subsection{Matrices}
+Here are some examples showing how to typeset matrices. Remember matrices are in maths mode!
+
+The ampersand symbols (\verb|&|) separate out the elements in a row and the double backslashes (\verb|\\|) end a row. This is just like how the \textbf{align} environment behaves. 
+
+\begin{equation}
+\begin{bmatrix}
+  a & b & c \\
+  d & e & f \\
+  g & h & i
+\end{bmatrix}
+\end{equation}
+
+
+\begin{equation}
+A_{m,n} = 
+ \begin{pmatrix}
+  a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
+  a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
+  \vdots  & \vdots  & \ddots & \vdots  \\
+  a_{m,1} & a_{m,2} & \cdots & a_{m,n} 
+ \end{pmatrix}
+\end{equation}
+% \cdots stands for "centered dots" and \vdots stands for "vertical dots". 
+% What do you think \ddots stands for? 
+
+
+You can, of course, just type the matrices out if you are familiar with the syntaxes. Otherwise, you could use tools to help you to construct them (e.g. \url{https://www.codecogs.com/latex/eqneditor.php}). 
+
+\vspace{1cm} % Inserts vertically some white space of height 1cm.
+
+{\LARGE \color{red} WARNING!!} % Guess how we did this! 
+
+\vspace{1cm}
+
+As a general rule, if you generate a matrix in Mathematica (for example, using \verb|IdentityMatrix[4]|, see below), then it is a good idea to \textbf{NOT} type this matrix out in \LaTeX . There already exists an option to copy your results (not just matrices!) in \LaTeX\ format! A similar output can be created in R using \verb|library(xtable)|.
+
+\begin{equation} % Mathematica generated!
+\left(
+\begin{array}{ccccc}
+ 1 & 0 & 0 & 0 & 0 \\
+ 0 & 1 & 0 & 0 & 0 \\
+ 0 & 0 & 1 & 0 & 0 \\
+ 0 & 0 & 0 & 1 & 0 \\
+ 0 & 0 & 0 & 0 & 1 \\
+\end{array}
+\right)
+\end{equation}
+% The {cccc} argument describes text alignment in each column - in this case, all columns are centrally-aligned. 
+
+
+
+\subsection{Tables}
+Creating a table is extremely similar to creating a matrix. 
+As you might expect, there are many tools out there that can help you export results into a table syntax without having to manually prepare them. 
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{ |c|c|c|c| } 
+ \hline
+ 1 & 0 & 0 & 0 \\
+ 0 & 1 & 0 & 0 \\
+ \hline 
+ 0 & 0 & 1 & 0 \\
+ 0 & 0 & 0 & 1 \\ 
+ \hline
+\end{tabular}
+\caption{This is a table.}
+\end{table}
+% The [h!] argument tells LaTeX where to put the image. 
+% h means "here", i.e. as close as possible to its appearance in the code. You can also try t or b for "top" and "bottom", along with a few other arguments. 
+% The exclamation point ! tells LaTeX that this particular image has priority placement. 
+% The pipes in the {|c|c|c|c|} argument tell LaTeX where to put the vertical lines. 
+% Obviously \hline gives us the horizontal lines. 
+
+
+\subsection{Images}
+
+Inserting pictures is easy. You just need to make sure the image file is in the same directory as the \verb|.tex| file. Specifying the full name in the \verb|\includegraphics{...}| command (from the \verb|graphicx| package) will suffice. Though the \textbf{figure} environment will allow a nicer placement of picture. 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.3\linewidth]{logo}
+% Try uncommenting the next line as well!
+%\includegraphics[width=0.5\linewidth]{logo}
+\caption{The picture was shrunk to 0.3 times the default line-width.}
+\label{fig:logo} % We can label more than just equations for later reference.
+\end{figure}
+
+
+
+\section{Bibliography}
+
+A bibliography may not be necessary for an undergraduate maths assignment, but nevertheless it is easy to create using \LaTeX. There are two ways of doing this. 
+
+
+\subsection{Manually typing the bibliography}
+One is to manually type in the following: 
+
+\begin{verbatim}
+\begin{thebibliography}{9}
+
+\bibitem{lamport94}
+  Leslie Lamport,
+  \emph{\LaTeX: a document preparation system},
+  Addison Wesley, Massachusetts,
+  2nd edition,
+  1994.
+
+\end{thebibliography}
+\end{verbatim}
+
+
+There are many ways you can adjust the styling of your bibliography. See \url{https://en.wikibooks.org/wiki/LaTeX/Bibliography_Management} for more details.
+
+\subsection{BibTeX}
+
+Perhaps a great advantage of using \LaTeX\ is the convenience of using associated programs like BibTeX. BibTeX is essentially a way for \LaTeX\ users to manage their (often very large) number of references. 
+
+\begin{enumerate}
+\item If you are using EndNote or Mendeley, then you can just add your references into your library and export them into a \verb|.bib| file. Otherwise write the item in correct BibTeX syntax and save the file with the suffix \verb|.bib|. For this workshop, we provided a file named ``\verb|ref.bib|'', which contains only one item with the key ``goossens93''.
+
+\item Once this is done, put the following lines at the end of your document:
+
+\begin{verbatim}
+\bibliographystyle{plain}
+\bibliography{ref.bib}
+\end{verbatim}
+
+
+\item Now you can simply cite any item inside this file.  So we can cite the aforementioned item using \verb|\cite{goossens93}| \cite{goossens93}.
+\end{enumerate}
+
+
+
+\bibliographystyle{plain}
+\bibliography{ref.bib}
+\end{document}
